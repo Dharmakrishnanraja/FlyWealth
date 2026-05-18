@@ -1,0 +1,31 @@
+
+FLYWEALTH ULTIMATE PACKAGE
+
+FILES INCLUDED:
+1. index.html
+2. manifest.json
+3. service-worker.js
+
+NEXT STEPS:
+
+1. Upload all files to GitHub repository root.
+
+2. Replace:
+G-XXXXXXXXXX
+
+with your real Google Analytics 4 Measurement ID.
+
+3. GitHub Pages:
+Settings → Pages → Deploy from main branch.
+
+4. Open app in Chrome mobile.
+
+5. Install button will appear automatically.
+
+AI VOICE:
+Tamil / English / Hindi supported.
+Default language: Tamil.
+
+IMPORTANT:
+Google Analytics email reports must be configured manually inside GA4 dashboard using your Gmail:
+dharmakreshnaraja@gmail.com
