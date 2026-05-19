@@ -52,62 +52,17 @@
 </style>
 
 <meta name="theme-color" content="#6d28d9">
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4YK4G4V8B7"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<script>
-function flySpeak(text, lang='ta-IN'){
-  window.speechSynthesis.cancel();
-
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.lang = lang;
-  speech.rate = 0.95;
-
-  const voices = window.speechSynthesis.getVoices();
-
-  if(lang==='ta-IN'){
-    const v = voices.find(x=>x.lang.includes('ta'));
-    if(v) speech.voice=v;
-  }
-
-  if(lang==='en-US'){
-    const v = voices.find(x=>x.lang.includes('en'));
-    if(v) speech.voice=v;
-  }
-
-  if(lang==='hi-IN'){
-    const v = voices.find(x=>x.lang.includes('hi'));
-    if(v) speech.voice=v;
-  }
-
-  speechSynthesis.speak(speech);
-}
-
-function explainFlyWealth(lang='ta-IN'){
-
-  let txt='';
-
-  if(lang==='ta-IN'){
-    txt='வணக்கம். இது FlyWealth செயலி. இது wellness products மற்றும் business growth visualization க்காக உருவாக்கப்பட்ட smart application ஆகும்.';
-  }
-
-  if(lang==='en-US'){
-    txt='Welcome to FlyWealth. This application is designed for wellness product presentation and business growth visualization.';
-  }
-
-  if(lang==='hi-IN'){
-    txt='नमस्ते। यह FlyWealth application wellness products और business growth visualization के लिए बनाया गया है।';
-  }
-
-  flySpeak(txt,lang);
-}
+gtag('config', 'G-4YK4G4V8B7');
 </script>
 
 </head>
@@ -336,67 +291,51 @@ useEffect(()=>{let lY=0;const ts=e=>{lY=e.touches[0].clientY;};const tm=e=>{cons
 useEffect(()=>{const h=e=>{e.preventDefault();e.returnValue='';return'';};window.addEventListener('beforeunload',h);return()=>window.removeEventListener('beforeunload',h);},[]);// Hide loading screen
 useEffect(()=>{setTimeout(()=>{const el=document.getElementById('loading');if(el){el.style.opacity='0';el.style.transition='opacity 0.5s';setTimeout(()=>el.remove(),500);}},800);},[]);const res=calcResult(cs.pkgIndex,cs.counts,cs.lPairs,cs.capOn,cs.boxes,cs.dlCount);const screens={0:/*#__PURE__*/React.createElement(CompanyTab,null),1:/*#__PURE__*/React.createElement(LevelDSIScreen,{state:cs,setState:setCS}),2:/*#__PURE__*/React.createElement(ChannelScreen,{state:cs,setState:setCS}),3:/*#__PURE__*/React.createElement(BonusesScreen,{state:cs,setState:setCS}),4:/*#__PURE__*/React.createElement(InfoTab,null),5:/*#__PURE__*/React.createElement(ProductsTab,null),6:/*#__PURE__*/React.createElement(WhyFlyTab,null),7:/*#__PURE__*/React.createElement(AboutTab,null)};return/*#__PURE__*/React.createElement("div",{style:{minHeight:'100vh',background:'#f8fafc'}},/*#__PURE__*/React.createElement(TopBar,{result:res}),/*#__PURE__*/React.createElement("div",{className:"px-3 pt-3 pb-24"},screens[tab]),/*#__PURE__*/React.createElement(BottomNav,{current:tab,onChange:setTab}));}const root=ReactDOM.createRoot(document.getElementById('root'));root.render(/*#__PURE__*/React.createElement(App,null));</script>
 
-<div style="position:fixed;bottom:90px;right:18px;z-index:99999;font-family:sans-serif;">
-  <div style="background:#6d28d9;color:white;padding:14px;border-radius:18px;width:180px;box-shadow:0 8px 24px rgba(0,0,0,0.25);">
-
-    <div style="font-weight:bold;margin-bottom:8px;">
-      🎤 AI Voice Guide
-    </div>
-
-    <select id="flyLang" style="width:100%;padding:8px;border-radius:8px;margin-bottom:10px;color:black;">
-      <option value="ta-IN" selected>Tamil</option>
-      <option value="en-US">English</option>
-      <option value="hi-IN">Hindi</option>
-    </select>
-
-    <button onclick="explainFlyWealth(document.getElementById('flyLang').value)"
-      style="width:100%;padding:10px;border:none;border-radius:10px;background:white;color:#6d28d9;font-weight:bold;">
-      ▶ Explain
-    </button>
-
-  </div>
-</div>
-
 <script>
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
 
-  const btn = document.createElement('button');
+    e.preventDefault();
 
-  btn.innerText = '📲 Install FlyWealth';
+    deferredPrompt = e;
 
-  btn.style.position='fixed';
-  btn.style.bottom='20px';
-  btn.style.right='20px';
-  btn.style.zIndex='99999';
-  btn.style.background='#6d28d9';
-  btn.style.color='white';
-  btn.style.border='none';
-  btn.style.padding='14px 18px';
-  btn.style.borderRadius='14px';
-  btn.style.fontWeight='bold';
-  btn.style.boxShadow='0 8px 20px rgba(0,0,0,0.25)';
+    const btn = document.createElement('button');
 
-  btn.onclick = async () => {
-    btn.remove();
+    btn.innerText = '📲 Install FlyWealth';
 
-    if(deferredPrompt){
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-    }
-  };
+    btn.style.position = 'fixed';
+    btn.style.bottom = '20px';
+    btn.style.right = '20px';
+    btn.style.zIndex = '999999';
+    btn.style.background = '#6d28d9';
+    btn.style.color = 'white';
+    btn.style.border = 'none';
+    btn.style.padding = '14px 18px';
+    btn.style.borderRadius = '14px';
+    btn.style.fontWeight = 'bold';
+    btn.style.boxShadow = '0 8px 20px rgba(0,0,0,0.25)';
 
-  document.body.appendChild(btn);
+    btn.onclick = async () => {
+
+        if(!deferredPrompt) return;
+
+        deferredPrompt.prompt();
+
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+
+        btn.remove();
+    };
+
+    document.body.appendChild(btn);
 });
 
-if('serviceWorker' in navigator){
-  window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('./service-worker.js');
-  });
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js');
+    });
 }
 </script>
 
